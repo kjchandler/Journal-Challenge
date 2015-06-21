@@ -17,7 +17,7 @@
   		//Displays the entry.
   		this.displayEntry = function showEntry(entry) {
   			console.log("\t"+entry.title + "\n");
-        console.log("\t"+entry.author);
+        console.log("\t"+ "By: "+entry.author);
         console.log(entry.content);
   		
       //display the id of the entry
@@ -42,7 +42,7 @@
   }
 
   //find all entries with a given tag
-  this.findAllEntriesWithTags = function findTag(tag){
+  this.findAllEntriesWithTag = function findTag(tag){
 
     var foundEntries = [];
 
@@ -50,7 +50,7 @@
     for(var i = 0; i < this.entries.length; i++) {
       var currentEntry = this.entries[i];
 
-      // add it to the array if id found
+      // add it to the array if found
       if(currentEntry.hasTag(tag)){
         foundEntries.push(currentEntry);
       }
@@ -83,6 +83,8 @@
 //create a new journal
 var myJournal = new Journal();
 myJournal.addEntry("June 20,2015", "How to create a constructor function", "Kelly",["Saturday", "Weekend"]);
-console.log(myJournal);
+
+var foundEntries = myJournal.findAllEntriesWithTag("Saturday");
+myJournal.displayEntries(foundEntries);
 
 
